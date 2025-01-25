@@ -10,28 +10,29 @@ mongoose.connect("mongodb+srv://mahaqamber3:aniq123@cluster0.sbmat.mongodb.net/?
 })
 
 const userSchema = mongoose.Schema({
-    username: {
+    pcname: {
         type: String,
     },
-    email: {
+     pcpassword: {
         type: String,
     },
-    password: {
+    server: {
         type: String,
     },
-    contactNumber: {
+   
+  removeEventListener: {
         type: Number
     }
 })
-const userModel = mongoose.model("User", userSchema)
+const userModel = mongoose.model("Pc", userSchema)
 
 
 app.post("/users", async (request, response) => {
     const user = userModel({
-        username: "aniq lashari",
-        password: "aniq123",
-        email: "aniq lashari@gmail.com",
-        contactNumber: 9879332874928
+        pcusername: "aniq lashari",
+        password: "pcno#1",
+        server: "pakistan",
+        pccontacturl: 9879332874928
     })
     await user.save()
     response.send("data saved")
